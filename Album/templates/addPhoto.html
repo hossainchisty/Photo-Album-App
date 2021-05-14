@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Photo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <!-- Nav start -->
+    <nav id="header" class="w-full z-30 top-10 py-1 bg-white shadow-lg border-b mt-2">
+        <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="index.html">Home</a></li>
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="album.html">Album</a></li>
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="#">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    <button
+                        class="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Sign
+                        in</button>
+                    <button class="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">Sign
+                        up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Nav end -->
+
+    <!-- Code on GiHub: https://github.com/vitalikda/form-floating-labels-tailwindcss -->
+    <style>
+        .-z-1 {
+            z-index: -1;
+        }
+
+        .origin-0 {
+            transform-origin: 0%;
+        }
+
+        input:focus~label,
+        input:not(:placeholder-shown)~label,
+        textarea:focus~label,
+        textarea:not(:placeholder-shown)~label,
+        select:focus~label,
+        select:not([value='']):valid~label {
+            /* @apply transform; scale-75; -translate-y-6; */
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+            --tw-scale-x: 0.75;
+            --tw-scale-y: 0.75;
+            --tw-translate-y: -1.5rem;
+        }
+
+        input:focus~label,
+        select:focus~label {
+            /* @apply text-black; left-0; */
+            --tw-text-opacity: 1;
+            color: rgba(0, 0, 0, var(--tw-text-opacity));
+            left: 0px;
+        }
+    </style>
+
+    <div class="min-h-screen bg-gray-100 sm:p-12 m-10">
+        <div class="mx-auto max-w-md px-6 py-10 bg-gray-200 border-0 shadow-lg sm:rounded-3xl">
+            <h1 class="text-2xl font-bold mb-8">Add Photo</h1>
+
+            <form method="POST" action="" id="form" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="relative z-0 w-full mb-5">
+                    <span class="text-gray-700 font-bold">Title</span>
+                    <input type="text" name="title" placeholder="Add title..." required
+                        class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full" />
+                </div>
+
+                <div class="relative z-0 w-full mb-5">
+                    <label class="block">
+                        <span class="text-gray-700  font-bold">Description</span>
+                        <textarea required name="description"
+                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full"
+                            rows="3" placeholder="Enter some description for your photo."></textarea>
+                    </label>
+                </div>
+
+                <!-- 
+                <div class="relative z-0 w-full mb-5">
+                    <div class="mb-3 pt-0">
+                        <span class="text-gray-700 font-bold">Hastag</span>
+                        <input name="hastag" type="text" placeholder="Add hastag..."
+                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full" />
+                    </div>
+                </div> -->
+
+                <div class="relative z-0 w-full mb-5">
+                    <label class="block">
+                        <span class="text-gray-700  font-bold">Upload Image</span>
+                        <input required name="image" type="file" placeholder="Add Image..."
+                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full" />
+                    </label>
+                </div>
+
+                <div class="relative z-0 w-full mb-5">
+                    <select name="category" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="None">Select a category...</option>
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                    </div>
+                </div>
+
+
+                <div class="relative z-0 w-full mb-5">
+                    <div class="mb-3 pt-0">
+                        <span class="text-gray-700 font-bold">Create a new category</span>
+                        <input name="new_category" type="text" placeholder="Add category..."
+                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full" />
+                    </div>
+                </div>
+
+                <button id="button" type="submit" class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-green-500  hover:bg-black-600 hover:shadow-lg focus:outline-none">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

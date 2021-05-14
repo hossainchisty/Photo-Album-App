@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Album</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <!-- Nav start -->
+    <nav id="header" class="w-full z-30 top-10 py-1 bg-white shadow-lg border-b mt-2">
+        <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="index.html">Home</a></li>
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="album.html">Album</a></li>
+                        <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="#">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    <button
+                        class="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Sign
+                        in</button>
+                    <button class="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">Sign
+                        up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Nav end -->
+
+    <div class="blogs__wraper  py-20 px-20">
+        <div class="flex justify-between items-center">
+            <div class="bg-gray-100 lg:py-12 lg:flex lg:justify-center">
+                <div class="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
+                    <div class="lg:w-1/2">
+                        <div class="h-64 bg-cover  lg:h-full">
+                            <img class="lg:rounded-lg" src="{{ photos.image.url  }}" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="py-12 px-6 max-w-xl lg:max-w-5xl lg:w-1/2">
+                        <h2 class="text-3xl text-gray-800 font-bold">
+                        <span class="text-indigo-600">{{ photos.title | title }}</span></h2>
+                        <p class="mt-4 text-gray-600">{{ photos.description }}</p>
+                        
+                        {% for accounts in profile %}
+                        <div class="inline-flex items-center">
+                            <a class="flex items-center no-underline hover:underline text-black" href="{% url 'profile' %}">
+                                <img alt="Author" class="inline object-cover w-8 h-8 rounded-full m-2"
+                                    src="{{ accounts.image.url }}">
+
+                                <div class="ml-2 inline-flex items-center">
+                                    <span class="capitalize font-base text-xs my-1 mr-1">{{ accounts.full_name }}</span>
+                                    <svg class="stroke-current stroke-1 text-blue-600 w-4"
+                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+
+                        <br>
+                        
+                        {% for items in hastags %}
+                        <span class="bg-blue-100 px-4 py-2 text-xs font-semibold tracking-wider text-blue-600 rounded hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"><a href="">{{ items.tags | lower }}</a></span>
+                        {% endfor %}
+
+                <div class="mt-8">
+                    <a href="{% url 'home' %}"
+                        class="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded">Go Back</a>
+
+                    <a href="{% url 'edit' photos.pk %}"
+                       class="bg-indigo-500 text-gray-100 px-5 py-3 font-semibold rounded">Update</a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

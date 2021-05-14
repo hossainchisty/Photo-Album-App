@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Photo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+
+    <div class="min-h-screen bg-gray-100 sm:p-12 m-10">
+        <div class="mx-auto max-w-md px-6 py-10 bg-gray-200 border-0 shadow-lg sm:rounded-3xl">
+            <h1 class="text-2xl font-bold mb-8"></h1>
+            <p>Are you sure you want to delete your <samp class="font-bold">{{ photo }}</samp>? 
+            All of your data will be permanently removed. This action cannot be undone.</p>	
+            <hr>
+            <br>
+            <br>
+            <form method="POST" novalidate enctype="multipart/form-data">
+                    {% csrf_token %}
+            <button id="button"
+                    type="submit" 
+                    class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-red-500  hover:bg-black-600 hover:shadow-lg focus:outline-none">Yes, sure</button>
+
+            </form>
+            
+                <button id="button" 
+                class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-indigo-500  hover:bg-black-600 hover:shadow-lg focus:outline-none">
+                <a href="{% url 'home' %}">Cancel</a></button>
+        </div>
+    </div>
+
+
+    
+    
+
+</div>
+</body>
+
+</html>
+  
+  
+  
+  
+  
+  
+

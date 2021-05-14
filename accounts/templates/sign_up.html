@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Sign up</title>
+         <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="bg-indigo-200 min-h-screen flex flex-col">
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="bg-blue-100 px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 class="mb-8 text-3xl text-center font-bold">Sign up</h1>
+                    <form action="" method="POST">
+                        {{ form.username.label }}
+                        {{ form.username }}
+
+                        {{ form.email.label }}
+                        {{ form.email }}
+
+
+                        {{ form.password1.label }}
+                        {{ form.password1 }}
+
+                        {{ form.password2.label }}
+                        {{ form.password2 }}
+                    
+                    <button
+                        type="submit"
+                        class="w-full text-center py-3 rounded bg-green-400 text-white hover:bg-green-dark focus:outline-none my-1">
+                        Create Account</button>
+                    </form>
+                
+                    <div class="text-center text-sm text-grey-dark mt-4">
+                    <input type="checkbox" class="form-checkbox" >
+                        By signing up, you agree to the 
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                            Terms of Service
+                        </a> and 
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                            Privacy Policy
+                        </a>
+                    </div>
+
+                <div class="text-grey-dark mt-6 pl-7">
+                    Already have an account? 
+                    <a class="no-underline border-b border-blue text-blue-800" href="{% url 'sign-in' %}">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
