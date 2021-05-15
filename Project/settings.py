@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Thirty party app
     'django.contrib.humanize',
     
     # Local apps
