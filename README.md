@@ -1,6 +1,6 @@
-# Django-Photo-Album-App
 
-***  A Photo Album App made with Django framework in the backend. Tailwindcss for the frontend. I will host Images on AWS S3 Buckets in the future. ***
+
+*A Photo Album App made with Django framework in the backend. Tailwindcss for the frontend. I will host Images on AWS S3 Buckets in the future.*
 
 # Photo Album Features:
 * Sign Up.
