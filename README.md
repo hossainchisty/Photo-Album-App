@@ -1,6 +1,6 @@
 # Django-Photo-Album-App
 
-* A Photo Album App made with Django framework in the backend. Tailwindcss for the frontend.*
+***  A Photo Album App made with Django framework in the backend. Tailwindcss for the frontend. I will host Images on AWS S3 Buckets in the future. ***
 
 # Photo Album Features:
 * Sign Up.
@@ -9,7 +9,7 @@
 * Add Image with title, description and category.
 * Update Image with title, description and category.
 * Delete Image with title, description and category.
-* Filter with Image title.
+* Search with Image title.
 * User can change Profile picture/cover Image/Bio/Name.
 * User-friendly.
 ## Setup, Installation and Run
@@ -46,6 +46,31 @@ pip install -r requirements.txt
 ```python
 python manage.py runserver
 ```
-![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo.png)
+### Home 
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/homepage.png)
+
+### Add Image 
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/addphoto.png)
+
+### Update and Delete Image 
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/updatephoto.png)
+
+### Update and Delete Image 
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/updatephoto.png)
+
+### View Image 
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/viewphoto.png)
+
+### User Profile
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/userprofile.png)
+
+### Sign Up
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/sign-up.png)
+
+### Sign In
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/sign-in.png)
+
+### Password Rest
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/password-rest.png)
 
 ### Thanks ❤ 
