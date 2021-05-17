@@ -1,1 +1,51 @@
-# Photo-Album-App
+# Django-Photo-Album-App
+
+* A Photo Album App made with Django framework in the backend. Tailwindcss for the frontend.*
+
+# Photo Album Features:
+* Sign Up.
+* Sign In.
+* Password Reset with email.
+* Add Image with title, description and category.
+* Update Image with title, description and category.
+* Delete Image with title, description and category.
+* Filter with Image title.
+* User can change Profile picture/cover Image/Bio/Name.
+* User-friendly.
+## Setup, Installation and Run
+
+To run the app on your local machine, you need Python 3+, installed on your computer. Follow all the steps to run this project.
+   
+1.  Create `venv` virtual environment:
+```bash
+virtualenv virtualenv_name
+```
+    
+2.  Activate `venv` virtual environment:
+```bash
+On Linux - source virtualenv_name/bin/activate
+virtualenv_name/Scripts/activate
+```
+
+3. Firstly you need to clone or download my project from github repositories:
+```bash
+git clone https://github.com/hossainchisty/Photo-Album-App.git
+```
+
+4. Then enter the corresponding directory:
+```bash
+cd Photo-Album-App
+```
+    
+5. Install all the requirements using pip:
+```python
+pip install -r requirements.txt
+``` 
+
+6.	Run server:
+```python
+python manage.py runserver
+```
+![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo.png)
+
+### Thanks ❤ 
