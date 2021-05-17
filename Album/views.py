@@ -1,13 +1,12 @@
 from django.shortcuts import render,redirect
 from django.utils.datastructures import MultiValueDictKeyError
-from django.contrib.auth.forms import UserCreationForm,PasswordResetForm,PasswordChangeForm
-from django.contrib.auth.decorators import  login_required
-from .forms import EditPhoto
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from .forms import EditPhoto,EditProfile
 from .models import *
 
-
 # Create your views here.
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def album(request):
     category = request.GET.get('category')
     if category == None:
@@ -31,7 +30,7 @@ def album(request):
 
     return render(request,'home.html',context)
 
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def result(request):
     
     profiles = Profile.objects.all()
@@ -49,7 +48,7 @@ def result(request):
                 'profile':profiles,} 
     return render(request,'result.html',context)
 
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def photo(request, pk):
     photo = Photo.objects.get(id=pk)
     tags = Hastag.objects.all()
@@ -60,7 +59,7 @@ def photo(request, pk):
                 'profile':profiles}
     return render(request,'album.html', context)
 
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def editPhoto(request, pk):
     photo = Photo.objects.get(id=pk)
 
@@ -74,7 +73,7 @@ def editPhoto(request, pk):
     context = { 'form':form ,'photo':photo}
     return render(request,'editPhoto.html', context)
 
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def deletePhoto(request, pk):
     photo = Photo.objects.get(id=pk)
     if request.method == 'POST':
@@ -83,7 +82,7 @@ def deletePhoto(request, pk):
     context = {'photo':photo}
     return render(request,'deletePhoto.html', context)
     
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def addPhoto(request):
     categories = Category.objects.all()
 
@@ -115,34 +114,22 @@ def addPhoto(request):
     template_name = 'addPhoto.html'
     return render(request, template_name, context)
 
-@login_required(login_url='sign-in')
+@login_required(login_url='login')
 def profile(request):
     profiles = Profile.objects.all()
     context = {'profile':profiles}
     return render(request,'profile.html', context)
 
+def editProfile(request,pk):
+    profiles = Profile.objects.get(id=pk)
+    print(profiles)
+    form = EditProfile(instance=profiles)
+    if request.method == "POST":
+        form = EditProfile(request.POST, request.FILES, instance=profiles)
+        if form.is_valid():
+            form.save() 
+            return redirect('/profile')
 
-def Index(request):
-    # now = datetime.datetime.now()
-
-    # context = {
-    #     'first': 4,
-    #     'second':1000000,
-    #     'third': 1234,
-    #     'fourth':23222,
-    #     'fifth': 190,
-    #     'ordinal': 1,
-    #     'now': now,
-    #     'today': now,
-    #     'other_date': now + datetime.timedelta(days=-4),
-    #     'future_date': now + datetime.timedelta(days=-540, ),
-    #     'past_date': now - datetime.timedelta(days=-741),
-    #     'test': "Joel is a slug" ,
-
-    # }
-
-    context = {'UserCreationForm': UserCreationForm}
-
-    template_name = "humanize.html"
-
-    return render(request, template_name, context)
+    context = { 'form':form}
+    return render(request,'editProfile.html', context)
+        

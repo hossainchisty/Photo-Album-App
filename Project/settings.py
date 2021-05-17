@@ -39,13 +39,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Thirty party app
+    # Third party app
     'django.contrib.humanize',
+    "crispy_forms",
+    "crispy_tailwind",
     
     # Local apps
     'Album.apps.AlbumConfig',
     'accounts.apps.AccountsConfig'
+    
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

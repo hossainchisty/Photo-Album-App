@@ -10,67 +10,7 @@
 </head>
 
 <body>
-     <!-- Nav start -->
-    <nav id="header" class="w-full z-30 top-10 py-1 bg-white shadow-lg border-b mt-2">
-        <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
-            <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    viewBox="0 0 20 20">
-                    <title>menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                </svg>
-            </label>
-            <input class="hidden" type="checkbox" id="menu-toggle">
-
-             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
-                    <nav>
-                        <ul class="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
-                            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                                    href="index.html">Home</a></li>
-                            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                                    href="album.html">Album</a></li>
-                            <li><a class="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                                    href="#">About</a></li>
-                              <div class="auth flex items-center w-full">
-          
-
-            </div>
-                        </ul>
-                    </nav>
-            </div>
-            {% if request.user.is_staff %}
-           
-            <h3 class="text-blue-800 font-bold">Hi, <span class="text-gray-900 font-bold"> {{ request.user }}</span></h3> 
-
-           
-
-            <button
-                    class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1">
-                    <a href="{% url 'sign-out' %}">Sign Out</a></button>
-            {% else %}
-            <div class="auth flex items-center w-full md:w-full">
-                <button
-                    class="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
-                    <a href="{% url 'sign-in' %}">Sign In</a></button>
-
-                <button class="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100"><a href="{% url 'sign-up' %}">Sign Up</a></button>
-            </div>
-            {% endif %}
-                  
-
-
-        </div>
-
-            {% comment %} {% if request.user.is_authenticated %} 
-              
-            {% endif %} {% endcomment %}
-              
-
-          
-        </div>
-    </nav>
-    <!-- Nav end -->
-
+    {% include 'navbar.html' %}
 
     <!-- Search Bar Start  -->
     <div class="mt-10 w-full mx-auto rounded-xl bg-gray-200 shadow-lg p-2 text-gray-800 relative overflow-hidden resize-x min-w-80 max-w-3xl mt-20">
@@ -86,11 +26,9 @@
             </form>
         </div>
         
-        
         <button class="px-4 py-2 mb-4  text-sm  font-medium  rounded-full block  bg-transparent hover:bg-indigo-700 border border-indigo-700   text-indigo-700 hover:text-indigo-200 mt-10">
         <a href="{% url 'add' %}">Add Photo</a></button>
         
-        	
     </div>
     <!-- Search Bar End  -->
 
