@@ -55,9 +55,6 @@ python manage.py runserver
 ### Update and Delete Image 
 ![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/updatephoto.png)
 
-### Update and Delete Image 
-![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/updatephoto.png)
-
 ### View Image 
 ![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/viewphoto.png)
 
