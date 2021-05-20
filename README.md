@@ -24,7 +24,7 @@ virtualenv virtualenv_name
 2.  Activate `venv` virtual environment:
 ```bash
 On Linux - source virtualenv_name/bin/activate
-virtualenv_name/Scripts/activate
+On Windows - virtualenv_name/Scripts/activate
 ```
 
 3. Firstly you need to clone or download my project from github repositories:
