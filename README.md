@@ -46,6 +46,9 @@ pip install -r requirements.txt
 ```python
 python manage.py runserver
 ```
+7. Access the homepage on ```http://localhost:8000```
+8. Access the dashboard page on ```http://localhost:8000/admin```
+
 ### Home 
 ![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/homepage.png)
 
