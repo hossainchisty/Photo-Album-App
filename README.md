@@ -10,7 +10,7 @@
 * Update Image with title, description and category.
 * Delete Image with title, description and category.
 * Search with Image title.
-* User can change Profile picture/cover Image/Bio/Name.
+* User can change Profile picture/cover Image/Bio/Full Name.
 * User-friendly.
 ## Setup, Installation and Run
 
