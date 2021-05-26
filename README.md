@@ -12,6 +12,7 @@
 * Search with Image title.
 * User can change Profile picture/cover Image/Bio/Full Name.
 * User-friendly.
+
 ## Setup, Installation and Run
 
 To run the app on your local machine, you need Python 3+, installed on your computer. Follow all the steps to run this project.
@@ -44,11 +45,15 @@ pip install -r requirements.txt
 
 6.	Run server:
 ```python
-python manage.py runserver
+  python manage.py runserver
 ```
 
 7. Then go to ```http://127.0.0.1:8000``` in your browser
-8. Access the admin dashboard ```http://127.0.0.1:8000/admin```
+8. Create Admin
+```
+ python manage.py createsuperuser
+```
+9. Access the admin dashboard ```http://127.0.0.1:8000/admin```
 
 ### Home 
 ![Image of demo](https://github.com/hossainchisty/Photo-Album-App/blob/master/demo/homepage.png)
