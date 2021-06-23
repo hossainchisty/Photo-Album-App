@@ -18,7 +18,7 @@ Live [Demo](http:hossainchisty.pythonanywhere.com)*
 
 ## Setup, Installation and Run
 
-To run the app on your local machine, you need Python 3+, installed on your computer. Follow all the steps to run this project.
+To run the app on your local machine, you need Python 3+, installed on your machine. Follow all the steps to run this project.
    
 1.  Create `venv` virtual environment:
 ```bash
